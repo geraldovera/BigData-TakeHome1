@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/exam1-sp17-bigdata-desc.iml" filepath="$PROJECT_DIR$/.idea/exam1-sp17-bigdata-desc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mapreduce/p1exam1/p1exam1.iml" filepath="$PROJECT_DIR$/mapreduce/p1exam1/p1exam1.iml" />
     </modules>
   </component>
 </project>

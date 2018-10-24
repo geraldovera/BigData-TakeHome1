@@ -9,7 +9,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 
-public class Occurrences {
+public class Keywords {
 
     public static void main(String[] args) throws Exception {
         if (args.length != 2) {
@@ -20,13 +20,13 @@ public class Occurrences {
         Configuration conf = new Configuration();
         conf.set("mapred.textoutputformat.separator", " ");
         Job job = Job.getInstance(conf, "Keywords");
-        job.setJarByClass(Occurrences.class);
+        job.setJarByClass(Keywords.class);
 
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-        job.setMapperClass(OcurrancesMapper.class);
-        job.setReducerClass(OcurrancesReducer.class);
+        job.setMapperClass(KeywordsMapper.class);
+        job.setReducerClass(KeywordsReducer.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);

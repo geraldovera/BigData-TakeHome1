@@ -11,7 +11,7 @@ import twitter4j.TwitterObjectFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class OcurrancesMapper extends Mapper<LongWritable, Text, Text, Text> {
+public class KeywordsMapper extends Mapper<LongWritable, Text, Text, Text> {
 
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
@@ -28,10 +28,11 @@ public class OcurrancesMapper extends Mapper<LongWritable, Text, Text, Text> {
         try {
             Status status = TwitterObjectFactory.createStatus(tweet);
             String text = status.getText().toUpperCase();
+            Long id = status.getId();
 
             for (int i =0; i<keyWords.size();i++){
                 if(text.contains(keyWords.get(i))){
-                    context.write(new Text(keyWords.get(i)), new Text(status.getId));
+                    context.write(new Text(keyWords.get(i)), new Text(id.toString()));
                 }
             }
         }
